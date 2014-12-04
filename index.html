@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Angular/Jenkins/GitHub Demo</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+  <style>
+  	html {
+  		/*background: black;*/
+  	}
+    div {
+  		padding: 0 10px;
+		display: inline-block;
+		border: 3px solid black;
+		border-radius: 10px;
+		box-shadow: 5px 5px 20px black;
+		font-family: sans-serif;
+  	}
+  	img {
+  		height: 50px;
+  		float: left;
+  		margin-top: 25px;
+  	}
+  	ul {
+  		margin-left: 20px;
+		list-style-type: none;
+  	}
+  </style>
+</head>
+<body ng-app="testApp">
+<div id="container" ng-controller="testController">
+	<img src="{{repo.owner.avatar_url}}" />
+	<ul>
+		<li>Repo: <a href="{{repo.html_url}}">{{repo.html_url}}</a>
+		<li>Repo Name: <strong>{{repo.name}}</strong></li>
+		<li>Owner: <strong>{{repo.owner.login}}</strong></li>
+		<li>Last modified: <strong>{{repo.updated_at}}</strong></li>
+		<li>Last Pushed: <strong>{{repo.pushed_at}}</strong></li>
+	</ul>
+</div>
+<script>
+	angular.module('testApp', [])
+		.controller('testController',['$scope','$http',
+		function($scope,$http){
+				(function ()	{
+					$http.get("https://api.github.com/repos/darkajax/test").success(function (data) {
+						$scope.repo = data;
+					});	
+				})();
+		}]);
+</script>
+</body>
+</html>
