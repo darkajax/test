@@ -1,0 +1,64 @@
+body {
+	font-family: sans-serif;
+}
+
+#tools {
+	text-align: center;
+}
+
+.done-true > span {
+	text-decoration: line-through;
+}
+
+input[type="text"] {
+	font-size: 14px;
+}
+
+.edit_task {
+	width: 350px;
+}
+
+button {
+	color: white;
+	background-color: black;
+	border-radius: 25px;
+	border: 2px solid orange;
+	font-weight: bold;
+}
+
+button:hover {
+	color: black;
+	background-color: red;
+	border-color: black;
+}
+
+button[disabled] {
+	background-color: gray;
+	border-color: white;
+	color: #BBB;
+}
+
+.task_btn {
+	float: right;
+	margin-left: 5px;
+}
+
+ol {
+	width: 75%;
+	margin: 0 auto;
+}
+
+ol li {
+	border: 2px solid black;
+	border-radius: 15px;
+	margin: 15px;
+	padding: 10px;
+}
+
+ol > li:nth-child(even) {
+	background-color: #EEE; 
+}
+
+ol > li:nth-child(odd){
+	background-color: orange;
+}
